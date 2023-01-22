@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('category_rooms', function (Blueprint $table) {
             $table->id();
             // $table->timestamps();
-            $table->string('category_name');
+            $table->enum('category_name', ['Regular', 'Luxury', 'Penthouse']);
             $table->integer('available');
         });
     }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('transaction_id')->references('id')->on('transactions')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('rooms')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('night(s)'); //cart -> booked_until - booked_from
             $table->unsignedBigInteger('sub_price');
         });
     }

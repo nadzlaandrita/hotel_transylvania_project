@@ -18,7 +18,7 @@ return new class extends Migration
             // $table->timestamps();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('category_rooms')->onUpdate('cascade')->onDelete('cascade');
-            $table->enum('name', ['regular', 'luxury', 'penthouse']);
+            $table->string('name');
             $table->string('desc');
             $table->unsignedBigInteger('price');
             $table->string('image');
