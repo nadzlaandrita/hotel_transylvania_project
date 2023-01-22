@@ -22,7 +22,7 @@ class RoomSeeder extends Seeder
                 'name' => 'Wayne Room',
                 'desc' => 'A regular room with one king size bed',
                 'price' => 850000,
-                'image' => 'images\reguler\1.jpg'
+                'image' => 'images\regular_1.jpg'
             ],
 
             [
@@ -30,7 +30,7 @@ class RoomSeeder extends Seeder
                 'name' => 'Mavis Room',
                 'desc' => 'A luxury room with one king size bed',
                 'price' => 2000000,
-                'image' => 'images\Luxury\1.jpg'
+                'image' => 'images\luxury_1jpg'
             ],
 
             [
@@ -38,7 +38,7 @@ class RoomSeeder extends Seeder
                 'name' => 'Dracula Room',
                 'desc' => 'Feel your luxury in an amazing Penthouse',
                 'price' => 8000000,
-                'image' => 'images\penthouse\1.jpg'
+                'image' => 'images\penthouse_1.jpg'
             ]
         ]);
     }

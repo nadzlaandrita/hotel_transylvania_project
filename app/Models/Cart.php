@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'booked_from',
+        'booked_until'
+    ];
+    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function room(){
+        return $this->belongsTo(Room::class);
+    }
+
+    
+
 }
