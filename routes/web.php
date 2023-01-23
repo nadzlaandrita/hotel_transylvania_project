@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CategoryRoomController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +17,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login',[AuthController::class,'loginPage']);
 
-Route::get('/home', [CategoryRoomController::class, 'loadHome']);
+Route::get('/home-member', function () {
+    return view('.member/home-member');
+});
 
+Route::get('/home-admin', function () {
+    return view('.admin/home-admin');
+});
 
 Route::get('/cart-member', function () {
     return view('.member/cart-member');
+});
+
+
+Route::get('/transaction', function () {
+    return view('.member/transaction-member');
 });
 
 
