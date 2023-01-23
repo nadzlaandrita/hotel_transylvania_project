@@ -35,17 +35,17 @@
       <div class="card mb-3" style="max-width: 700px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="{{url($item->room->img)}}" class="img-fluid rounded-start"style="height: 213px" alt="...">
+            <img src="{{url($item->room->image)}}" class="img-fluid rounded-start"style="height: 213px" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body" style="background-color: #0B0B45">
-              <h5 class="card-title" style="text-align: center; color:#F1F2F4">Luxury Room</h5>
+              <h5 class="card-title" style="text-align: center; color:#F1F2F4">{{$item->room->name}}</h5>
 
               <h6>
-                Check In : 19 januari 2023
+                Check In : {{$item->booked_from}}
               </h6>
               <h6>
-                Check Out : 20 januari 2023
+                Check Out : {{$item->booked_until}}
               </h6>
               <h6>
                 Qty : 2

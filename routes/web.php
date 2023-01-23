@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryRoomController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/login',[AuthController::class,'loginPage']);
+Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/home-member', function () {
-    return view('.member/home-member');
-});
+Route::get('/register',[AuthController::class,'registerPage']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/home-admin', function () {
-    return view('.admin/home-admin');
-});
+Route::get('/home', [CategoryRoomController::class, 'loadHome']);
+
+Route::get('/profile', [UserController::class, 'loadProfile']);
 
 Route::get('/cart-member', function () {
     return view('.member/cart-member');

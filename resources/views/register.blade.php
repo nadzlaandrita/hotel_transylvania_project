@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-@include('wanda-navbar.user-navbar')
+@include('wanda-navbar.guest-navbar')
 <body>
     
     <style>
@@ -18,7 +18,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        .wrapper{
+        .wrapper1{
             max-width: 500px;
             width: 100%;
             background: #ffffff;
@@ -27,7 +27,7 @@
             border-radius: 20px;
             border: 2px solid #d4af37;
         }
-        .wrapper .input_field input, textarea{
+        .wrapper1 .input_field input, textarea{
             width: 100%;
             outline: none;
             border: 1px solid #d4af37;
@@ -37,11 +37,11 @@
             transition: all 0.3s ease;
             border-radius: 20px;
         }
-        .wrapper .input_field textarea{
+        .wrapper1 .input_field textarea{
             resize: none;
             height: 125px;
         }
-        .wrapper .title{
+        .wrapper1 .title{
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 25px;
@@ -49,53 +49,92 @@
             color: #d4af37;
             text-align: center;
         }
-        .wrapper form .input_field{
+        .wrapper1 form .input_field{
             margin-bottom: 15px;
             display: flex;
             align-items: center;
         }
-        .wrapper form .input_field label{
+        .wrapper1 form .input_field label{
             width: 200px;
             color: #d4af37;
             margin-right: 10px;
             font-size: 14px;
         }
-        .wrapper form .input_field .btn{
+        .wrapper1 form .input_field .btn{
             width: 100%;
             padding: 8px 10px;
             font-size: 15px;
             border: 0;
             background-color: #d4af37;
         }
-        .wrapper form .input_field .btn{
+        .wrapper1 form .input_field .btn{
             color: white;
         }
     </style>
-    <div class="wrapper">
+
+    <div class="wrapper1">
         <div class="title" >
             Registration Form
         </div>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/register')}}" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+
                 <div class="input_field">
                     <label for="">Email</label>
-                    <input type="email" name="" id="">
+                    <input type="email" name="email" id="email">
                 </div>
+
+                @error('email')
+                    <div class="alert alert-dismissible alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+
                 <div class="input_field">
                     <label for="">Username</label>
-                    <input type="username" name="" id="">
+                    <input type="username" name="username" id="username">
                 </div>
+
+                @error('username')
+                    <div class="alert alert-dismissible alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+
                 <div class="input_field">
                     <label for="">Password</label>
-                    <input type="password" name="" id="">
+                    <input type="password" name="password" id="password">
                 </div>
+
+                @error('password')
+                    <div class="alert alert-dismissible alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+
                 <div class="input_field">
                     <label for="">Phone Number</label>
-                    <input type="text" name="" id="">
+                    <input type="text" name="phone_number" id="phone_number">
                 </div>
+
+                @error('phone_number')
+                    <div class="alert alert-dismissible alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+
                 <div class="input_field">
                     <label for="">Address</label>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="address" id="address" cols="30" rows="10"></textarea>
                 </div>
+
+                @error('address')
+                    <div class="alert alert-dismissible alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+
+
                 <div class="input_field">
                     <input type="submit" value="Register" class="btn" style="color: white;">
                 </div>

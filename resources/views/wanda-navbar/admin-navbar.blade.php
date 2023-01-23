@@ -53,9 +53,9 @@
         <a href="" class="logo"><img src="logo_hotel.png" alt=""></a>
         <div class="wrapper">
             <ul class="navi">
-                <li><a href="">Home</a></li>
-                <li><a href="">Add Rooms</a></li>
-                <li><a href="">Profile</a></li>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/add-room">Add Rooms</a></li>
+                <li><a href="/profile">Profile</a></li>
                 <li class="signout"><a href="">Sign Out</a></li>
             </ul>
         </div>

@@ -13,6 +13,7 @@
         @yield('Welcome')
     </title>
 </head>
+{{-- @include('wanda-navbar.guest-navbar') --}}
 <body>
 
     <nav class="navbar navbar-expand-lg fixed-top t" style="background-color: #0B0B45">
@@ -24,7 +25,7 @@
           </button>
           <div class="collapse navbar-collapse"  id="navbarResponsive">
             <ul class="navbar-nav">
-                <a class="nav-link" href="#">Sign In</a>
+                <a class="nav-link" href="/login">Sign In</a>
               </li>
             </ul>
           </div>
@@ -45,7 +46,7 @@
                 <h5>Hotel Transylvania</h5>
                 <p>Share Your Journey and Experince</p>
                 <button type="button" class="btn btn-primary" style="background-color: #0B0B45">
-                 <a href="#" style="color: #F1F2F4; text-decoration: none">SIGN UP NOW</a>
+                 <a href="/register" style="color: #F1F2F4; text-decoration: none">SIGN UP NOW</a>
               </div>
             </div>
             <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
@@ -53,7 +54,7 @@
                 <h5>Hotel Transylvania</h5>
                 <p>Share Your Journey and Experince</p>
                 <button type="button" class="btn btn-primary " style="background-color: #0B0B45">
-                <a href="#" style="color: #F1F2F4; text-decoration: none">SIGN UP NOW</a>
+                <a href="/register" style="color: #F1F2F4; text-decoration: none">SIGN UP NOW</a>
               </div>
             </div>
             <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
@@ -61,7 +62,7 @@
                 <h5>Hotel Transylvania</h5>
                 <p>Share Your Journey and Experince</p>
                 <button type="button" class="btn btn-primary" style="background-color: #0B0B45">
-                <a href="#" style="color: #F1F2F4; text-decoration: none">SIGN UP NOW</a>
+                <a href="/register" style="color: #F1F2F4; text-decoration: none">SIGN UP NOW</a>
               </div>
             </div>
           </div>
@@ -85,7 +86,6 @@
         <div class="card-body" style="background-color: #0B0B45">
           <h3 class="card-title" style="text-align: center; color: #F1F2F4">Luxury Room</h3>
           <p class="card-text" style="text-align: justify; color: #F1F2F4">A Luxury Hotel is considered a hotel that provides a luxurious accommodation experience to the guest.There are no set standards such as stars for luxury hotels. Often 4 or 5-star hotels describe themselves as luxury</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
 
@@ -94,7 +94,6 @@
         <div class="card-body" style="background-color: #0B0B45">
           <h3 class="card-title"  style="text-align: center; color:#F1F2F4">Penthouse Room</h3>
           <p class="card-text"  style="text-align: justify; color:#F1F2F4">A 69 sqm size, Penthouse Room provided with king bed, 2 flat screen TVs, sofa in our stylish and modern penthouse room. A 69 sqm size, traveler or small family with high mobile Perfectly suited for individual business traveler</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
 
@@ -103,7 +102,6 @@
         <div class="card-body" style="background-color: #0B0B45">
           <h3 class="card-title"  style="text-align: center; color:#F1F2F4">Regular Room</h3>
           <p class="card-text"  style="text-align: justify; color:#F1F2F4">The rooms of the hotel are classified according to the number of beds in them, their size and their range of facilities. Prices of rooms in every hotel are different depends upon their convenience.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
 

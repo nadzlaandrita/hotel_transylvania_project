@@ -18,7 +18,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        .wrapper{
+        .wrapper2{
             max-width: 500px;
             width: 100%;
             background: #ffffff;
@@ -27,7 +27,7 @@
             border-radius: 20px;
             border: 2px solid #d4af37;
         }
-        .wrapper .input_field input, textarea{
+        .wrapper2 .input_field input, textarea{
             width: 100%;
             outline: none;
             border: 1px solid #d4af37;
@@ -37,11 +37,11 @@
             transition: all 0.3s ease;
             border-radius: 20px;
         }
-        .wrapper .input_field textarea{
+        .wrapper2 .input_field textarea{
             resize: none;
             height: 125px;
         }
-        .wrapper .title{
+        .wrapper2 .title{
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 25px;
@@ -49,41 +49,43 @@
             color: #d4af37;
             text-align: center;
         }
-        .wrapper form .input_field{
+        .wrapper2 form .input_field{
             margin-bottom: 15px;
             display: flex;
             align-items: center;
         }
-        .wrapper form .input_field label{
+        .wrapper2 form .input_field label{
             width: 200px;
             color: #d4af37;
             margin-right: 10px;
             font-size: 14px;
         }
-        .wrapper form .input_field .btn{
+        .wrapper2 form .input_field .btn{
             width: 100%;
             padding: 8px 10px;
             font-size: 15px;
             border: 0;
             background-color: #d4af37;
         }
-        .wrapper form .input_field .btn{
+        .wrapper2 form .input_field .btn{
             color: white;
         }
     </style>
-    <div class="wrapper">
+
+    <div class="wrapper2">
         <div class="title" >
             Sign In
         </div>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/login')}}" method="POST">
+                @csrf
 
                 <div class="input_field">
-                    <label for="">Username</label>
-                    <input type="username" name="" id="">
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="" placeholder="Enter email" value="{{ Cookie::get('email_cookie') != null ? Cookie::get('email_cookie') : '' }}" required>
                 </div>
                 <div class="input_field">
                     <label for="">Password</label>
-                    <input type="password" name="" id="">
+                    <input type="password" name="password" id="" placeholder="Enter password" value="{{ Cookie::get('password_cookie') != null ? Cookie::get('password_cookie') : '' }}" required>
                 </div>
                 <div class="input_field">
                     <input type="submit" value="Sign In" class="btn" style="color: white;">
