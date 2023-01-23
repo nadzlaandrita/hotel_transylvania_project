@@ -131,6 +131,7 @@
     color: #F1F2F4;
     margin-left: 900px
     }
+    
     .nav-link:active{
         color: white
     }

@@ -25,5 +25,9 @@ Route::get('/home-admin', function () {
     return view('.admin/home-admin');
 });
 
+Route::get('/cart-member', function () {
+    return view('.member/cart-member');
+});
+
 
 
