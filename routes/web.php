@@ -21,3 +21,9 @@ Route::get('/home-member', function () {
     return view('.member/home-member');
 });
 
+Route::get('/home-admin', function () {
+    return view('.admin/home-admin');
+});
+
+
+
