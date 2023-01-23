@@ -45,6 +45,7 @@
             text-align: center;
         }
         </style>
+        
         <div class="wrapper">
             <div class="title" >
                 My Profile
