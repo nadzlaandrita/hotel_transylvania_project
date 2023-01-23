@@ -16,13 +16,13 @@
 <body>
 
 
-      <header>
+  <header>
 
-        <br>
-        <br>
+    <br>
+    <br>
 
     <div class="view-price d-flex justify-content-end m-3">
-        <h5 class="m-2">Total Price: 2.400.000 </h5>
+        <h5 class="m-2">Total Price: {{$total_price}} </h5>
 
         <form action="#" method="POST">
              @csrf
@@ -31,11 +31,11 @@
 
     </div>
 
-
+    @foreach ($cart_data as $item)
       <div class="card mb-3" style="max-width: 700px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="{{asset("images/luxury_1.jpg")}}" class="img-fluid rounded-start"style="height: 213px" alt="...">
+            <img src="{{url($item->room->img)}}" class="img-fluid rounded-start"style="height: 213px" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body" style="background-color: #0B0B45">
@@ -60,35 +60,10 @@
         </div>
       </div>
 
-      <div class="card mb-3" style="max-width: 700px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="{{asset("images/luxury_2.jpg")}}" class="img-fluid rounded-start"style="height: 213px" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body" style="background-color: #0B0B45">
-              <h5 class="card-title" style="text-align: center; color:#F1F2F4">Luxury Room</h5>
+    @endforeach
 
-              <h6>
-                Check In : 19 januari 2023
-              </h6>
-              <h6>
-                Check Out : 20 januari 2023
-              </h6>
-              <h6>
-                Qty : 2
-              </h6>
-              <h6>
-                Price: 2.400.000
-              </h6>
-              <a href="#" class="btn btn-primary">Edit Cart</a>
-              <a href="#" class="btn btn-danger">Remove from Cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <br>
+  <br>
+  <br>
 
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryRoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home-member', function () {
-    return view('.member/home-member');
-});
+Route::get('/home', [CategoryRoomController::class, 'loadHome']);
 
-Route::get('/home-admin', function () {
-    return view('.admin/home-admin');
-});
 
 Route::get('/cart-member', function () {
     return view('.member/cart-member');
