@@ -30,4 +30,9 @@ Route::get('/cart-member', function () {
 });
 
 
+Route::get('/transaction', function () {
+    return view('.member/transaction-member');
+});
+
+
 
