@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
-    <title>Detail Category</title>
+    @section('title', 'detail-category')
 </head>
 @include('wanda-navbar.admin-navbar')
 <body>
@@ -72,16 +72,22 @@
     }
     </style>
     <div class="wrapper7">
-        <h1>Luxury Rooms</h1>
+
+        <h1>{{$category_data->category_name}}</h1>
+
         <div class="container22">
-            <div class="box22">
-                <!-- yang diubah dibagian sini ya -->
-                <img src="Screenshot (620).png" alt="">
-                <h3>Nama Kamarnys</h3>
-                <p>desc kamar. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quod necessitatibus nihil, autem tenetur amet nobis explicabo, asperiores, sunt quasi sed eveniet. Deleniti, et corporis maiores ipsum inventore expedita neque.</p>
-                <a href="" class="btn22">Book Now</a>
-            </div>
+            @foreach($room_data as $data)
+                <div class="box22">
+                    <img src="{{url($data->image)}}" alt="">
+                    <h3>{{$data->name}}</h3>
+                    <p>{{$data->desc}}</p>
+                    <a href="/detail-room/{{$data->id}}" class="btn22">Detail Room</a>
+                </div>
+                
+            @endforeach
         </div>
+            
+        
     </div>
 </body>
 </html>

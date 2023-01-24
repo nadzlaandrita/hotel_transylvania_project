@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Room;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,11 +18,14 @@ class CartController extends Controller
 
         $total_price = 0;
         foreach($cart_data as $item){
-            $interval = $item->booked_from->diff($item->booked_until);
+            $booked_until = Carbon::parse($item->booked_until);
+            $booked_from = Carbon::parse($item->booked_from);
+
+            $interval = $booked_until->diffInDays($booked_from);
             $total_price += $item->room->price * $interval;
         }
 
-        return view('member.view_cart', [
+        return view('member.cart-member', [
             'cart_data' => $cart_data,
             'total_price' => $total_price
         ]);
@@ -31,8 +35,8 @@ class CartController extends Controller
         Room::find($request->room_id);
 
         $request->validate([
-            'checkin_date' => 'required|date|date_format:Y-m-d H:i:s',
-            'checkout_date' => 'required|date|date_format:Y-m-d H:i:s|after:checkin_date'
+            'checkin_date' => 'required|date|',
+            'checkout_date' => 'required|date|after:checkin_date'
         ]);
 
         $cart_data = Cart::all()->where('user_id', '=', Auth::user()->id)->where('room_id', '=', $room_id)->first();
@@ -46,7 +50,7 @@ class CartController extends Controller
             ]);
         }
 
-        return redirect('/');
+        return redirect('/home');
 
     }
 

@@ -1,3 +1,4 @@
+@inject('carbon', 'Carbon\Carbon')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
     <br>
 
     <div class="view-price d-flex justify-content-end m-3">
-        <h5 class="m-2">Total Price: {{$total_price}} </h5>
+        <h5 class="m-2">Total Price: Rp. {{$total_price}} </h5>
 
         <form action="#" method="POST">
              @csrf
@@ -30,13 +31,15 @@
         </form>
 
     </div>
-
-    @foreach ($cart_data as $item)
-      <div class="card mb-3" style="max-width: 700px;">
-        <div class="row g-0">
+    
+    <div class="card mb-3" style="max-width: 700px;">
+      <div class="row g-0">
+        
+        @foreach ($cart_data as $item)
           <div class="col-md-4">
             <img src="{{url($item->room->image)}}" class="img-fluid rounded-start"style="height: 213px" alt="...">
           </div>
+
           <div class="col-md-8">
             <div class="card-body" style="background-color: #0B0B45">
               <h5 class="card-title" style="text-align: center; color:#F1F2F4">{{$item->room->name}}</h5>
@@ -48,19 +51,37 @@
                 Check Out : {{$item->booked_until}}
               </h6>
               <h6>
-                Qty : 2
+                Price: Rp. {{$item->room->price}}
               </h6>
+
+              <?php
+
+                $booked_until = $carbon::parse($item->booked_until);
+                $booked_from = $carbon::parse($item->booked_from);
+
+                $interval = $booked_until->diffInDays($booked_from);
+              
+              ?>
+
               <h6>
-                Price: 2.400.000
+                Total Night(s) Spend : {{$interval}}
               </h6>
               <a href="#" class="btn btn-primary">Edit Cart</a>
-              <a href="#" class="btn btn-danger">Remove from Cart</a>
+
+              <form action="/remove-cart/{{$item->room_id}}" method="POST">
+                @method('DELETE')
+                @csrf
+
+                <button type="submit" class="btn btn-danger btnchart d-flex">Remove from Cart</button>
+
+              </form>
             </div>
           </div>
-        </div>
-      </div>
 
-    @endforeach
+        @endforeach
+      </div>
+    </div>
+
 
   <br>
   <br>

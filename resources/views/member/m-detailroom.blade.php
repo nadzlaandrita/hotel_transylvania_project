@@ -75,42 +75,63 @@
         <div class="title" >
             Room Detail
         </div>
-        <div class="profile">
-            <img src="Screenshot (620).png" alt="">
-        </div>
-        <div class="profile">
-            <label for="">Room's Name :</label>
-            <p>blabla</p>
-            <!-- kasih tau ya nama roomnya -->
-        </div>
-        <div class="profile">
-            <label for="">Room's Description :</label>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque aliquam est, sint expedita quos temporibus. Autem ipsa, fugit corporis fugiat quisquam dolorum assumenda perspiciatis similique, accusantium iure magni est. Consequuntur.</p>
-            <!-- kasih tau description -->
-        </div>
-            <div class="profile1">
-                <label for="">Room's Category :</label>
-                <p>blabla</p>
-                <!-- kasih tau category -->
+
+        @foreach($room_data as $data)
+            {{-- @dd($room_data) --}}
+            <div class="profile">
+                <img src="{{url($data->image)}}" alt="">
             </div>
-            <div class="profile1">
+            <div class="profile">
+                <label for="">Room's Name :</label>
+                <p>{{$data->name}}</p>
+                <!-- kasih tau ya nama roomnya -->
+            </div>
+            <div class="profile">
+                <label for="">Room's Description :</label>
+                <p>{{$data->desc}}</p>
+                <!-- kasih tau description -->
+            </div>
+
+            <div class="profile">
                 <label for="">Room's Price :</label>
-                <p>blabla</p>
+                <p>Rp. {{$data->price}}</p>
                 <!-- kasih tau harga -->
             </div>
-        <div class="profile">
-            <label for="">Check In Date :</label>
-            <input type="date" class="" id="" name="">
-            <!-- kasih tau check in date -->
-        </div>
-        <div class="profile">
-            <label for="">Check Out Date :</label>
-            <input type="date" class="" id="" name="">
-            <!-- kasih tau check out -->
-        </div>
-        <div class="profile">
-            <input type="submit" value="Book" style="color: white; background-color: #d4af37;">
-        </div>
+        
+        
+            <form action="/add-cart/{{$data->id}}" method="POST">
+
+                @csrf
+                <div class="profile">
+                    <label for="">Check In Date :</label>
+                    <input type="date" class="" id="" name="checkin_date">
+                    <!-- kasih tau check in date -->
+                </div>
+
+                @error('checkin_date')
+                    <div class="alert alert-dismissible alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+
+                <div class="profile">
+                    <label for="">Check Out Date :</label>
+                    <input type="date" class="" id="" name="checkout_date">
+                    <!-- kasih tau check out -->
+                </div>
+
+                @error('checkin_date')
+                    <div class="alert alert-dismissible alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+                
+                <div class="profile">
+                    <input type="submit" value="Book" style="color: white; background-color: #d4af37;">
+                </div>
+            </form>
+
+        @endforeach
     </div>
 </body>
 </html>

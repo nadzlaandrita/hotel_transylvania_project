@@ -27,7 +27,7 @@ class Room extends Model
     }
 
     public function category(){
-        return $this->hasOne(CategoryRoom::class);
+        return $this->belongsTo(CategoryRoom::class);
     }
     
 }

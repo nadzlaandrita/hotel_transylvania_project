@@ -30,7 +30,7 @@ class RoomSeeder extends Seeder
                 'name' => 'Mavis Room',
                 'desc' => 'A luxury room with one king size bed',
                 'price' => 2000000,
-                'image' => 'images\luxury_1jpg'
+                'image' => 'images\luxury_1.jpg'
             ],
 
             [

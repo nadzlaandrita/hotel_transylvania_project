@@ -56,52 +56,27 @@
 
   <br>
   <br>
-  <div class="card mb-3" style="max-width: 700px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="{{asset("images/regular_1.jpg")}}" class="img-fluid rounded-start" style="height: 200px" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body" style="background-color: #0B0B45"">
-          <h5 class="card-title" style="text-align: center; color:#F1F2F4">Reguler Rooms</h5>
-          <p class="card-text"  style="text-align: justify; color:#F1F2F4">The rooms of the hotel are classified according to the number of beds in them, their size and their range of facilities. Prices of rooms in every hotel are different depends upon their convenience.</p>
-          <a href="#" class="btn btn-primary">More Detail</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="card mb-3" style="max-width: 700px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="{{asset("images/luxury_1.jpg")}}" class="img-fluid rounded-start"style="height: 200px" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body" style="background-color: #0B0B45">
-          <h5 class="card-title" style="text-align: center; color:#F1F2F4">Luxury Rooms</h5>
-          <p class="card-text" style="text-align: justify; color: #F1F2F4">A Luxury Hotel is considered a hotel
-            that provides a luxurious accommodation experience
-            to the guest.There are no set standards such as stars for luxury hotels. Often 4 or 5-star hotels describe themselves as luxury</p>
-          <a href="#" class="btn btn-primary">More Detail</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  @foreach($category_data as $data)
 
-  <div class="card mb-3" style="max-width: 700px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="{{asset("images/penthouse_1.jpg")}}" class="img-fluid rounded-start" style="height: 200px; width: 300px" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body" style="background-color: #0B0B45"">
-          <h5 class="card-title" style="text-align: center; color:#F1F2F4">Penthouse Rooms</h5>
-          <p class="card-text"  style="text-align: justify; color:#F1F2F4">A 69 sqm size, Penthouse Room provided with king bed, 2 flat screen TVs, sofa in our stylish and modern penthouse room. A 69 sqm size, traveler or small family with high mobile Perfectly suited for individual business traveler</p>
-          <a href="#" class="btn btn-primary">More Detail</a>
+    <div class="card mb-3" style="max-width: 700px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{$data->room[0]->image}}" class="img-fluid rounded-start" style="height: 200px" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body" style="background-color: #0B0B45"">
+            <h5 class="card-title" style="text-align: center; color:#F1F2F4">{{$data->category_name}} Rooms</h5>
+            <p class="card-text"  style="text-ali gn: justify; color:#F1F2F4">{{$data->room[0]->desc}}</p>
+            {{-- @dd($data->id) --}}
+            <a href="/category/{{$data->id}}" type="button" class="btn btn-primary">More Detail</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+  @endforeach
+
 
   <br>
   <br>

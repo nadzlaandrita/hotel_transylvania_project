@@ -5,9 +5,34 @@ namespace App\Http\Controllers;
 use App\Models\CategoryRoom;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RoomController extends Controller
 {
+
+    public function loadRoomPage($id){
+
+        // dd($id);
+        $category_data = CategoryRoom::find($id);
+        $room_data = Room::all()->where('category_id', '=', $category_data->id);
+        
+        // dd($category_data);
+        if(Auth::user()->role == 'admin'){
+            return view('admin.detail-category', [
+                'room_data' => $room_data,
+                'category_data' => $category_data
+            ]);
+        }else{
+            return view('member.detail-category', [
+                'room_data' => $room_data,
+                'category_data' => $category_data
+            ]);
+        }
+
+        // return abort(401);
+    }
+
 
     public function loadInsertPage(){
 
@@ -52,5 +77,25 @@ class RoomController extends Controller
         return redirect('/');
     }
 
+    public function loadDetailRoom($id){
+        $room_data = DB::table('rooms')->get()->where('id', $id);
+
+        if($room_data->contains('id', $id)){
+
+            if(Auth::user()->role == 'admin'){
+                return view('admin.a-detailroom', [
+                    'room_data' => $room_data
+                ]);
+            }else{
+                return view('member.m-detailroom', [
+                    'room_data' => $room_data
+                ]);
+            }
+
+        }else{
+            return abort(404);
+        }
+
+    }
     
 }
