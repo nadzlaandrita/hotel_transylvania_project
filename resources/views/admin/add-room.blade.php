@@ -18,7 +18,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        .wrapper{
+        .wrapper5{
             max-width: 500px;
             width: 100%;
             background: #ffffff;
@@ -27,7 +27,7 @@
             border-radius: 20px;
             border: 2px solid #d4af37;
         }
-        .wrapper .input_field input, textarea{
+        .wrapper5 .input_field input, textarea{
             width: 100%;
             outline: none;
             border: 1px solid #d4af37;
@@ -37,11 +37,11 @@
             transition: all 0.3s ease;
             border-radius: 20px;
         }
-        .wrapper .input_field textarea{
+        .wrapper5 .input_field textarea{
             resize: none;
             height: 125px;
         }
-        .wrapper .title{
+        .wrapper5 .title{
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 25px;
@@ -49,38 +49,38 @@
             color: #d4af37;
             text-align: center;
         }
-        .wrapper form .input_field{
+        .wrapper5 form .input_field{
             margin-bottom: 15px;
             display: flex;
             align-items: center;
         }
-        .wrapper form .input_field label{
+        .wrapper5 form .input_field label{
             width: 200px;
             color: #d4af37;
             margin-right: 10px;
             font-size: 14px;
         }
-        .wrapper form .input_field .btn{
+        .wrapper5 form .input_field .btn{
             width: 100%;
             padding: 8px 10px;
             font-size: 15px;
             border: 0;
             background-color: #d4af37;
         }
-        .wrapper form .input_field .btn{
+        .wrapper5 form .input_field .btn{
             color: white;
         }
-        .wrapper form .input_field .input{
+        .wrapper5 form .input_field .input{
             color: #d4af37;
         }
-        .wrapper form .input_field .custom_select{
+        .wrapper5 form .input_field .custom_select{
         height: 37px;
         width: 100%;
         position: relative;
         border-radius: 20px;
         border: 1px solid #d4af37;
         }
-        .wrapper form .input_field .custom_select select{
+        .wrapper5 form .input_field .custom_select select{
         -webkit-appearance: none;
         appearance: none;
         width: 100%;
@@ -94,37 +94,74 @@
         font-size: 15px;
         }
     </style>
-    <div class="wrapper">
+    <div class="wrapper5">
         <div class="title" >
-            Add Rooms
+            Add Room
         </div>
-            <form action="" method="POST" enctype="multipart/form-data">
+
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <strong>{{$message}}</strong>
+                </div>
+
+                <img src="{{ asset('images/'.Session::get('image')) }}" />
+            @endif
+
+            <form action="{{url('/add-room')}}" method="POST" enctype="multipart/form-data">
+                @csrf 
+
                 <div class="input_field">
                     <label for="">Room Name</label>
-                    <input type="email" name="" id="">
+                    <input type="text" name="name" id="">
+                    @error('name')
+                        <div class="alert alert-dismissible alert-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
+
                 <div class="input_field">
                     <label for="">Price</label>
-                    <input type="text" name="" id="">
+                    <input type="text" name="price" id="">
+                    @error('price')
+                        <div class="alert alert-dismissible alert-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
+
                 <div class="input_field">
                     <label for="">Category</label>
-                    <select class="custom_select" name="" id="">
+                    <select class="custom_select" name="category" id="">
                         <option selected>Select an Option</option>
-                        <option value=""></option>
-                        <!-- yang atas di line 111 itu yang di foreach buat category id sama name nya ya -->
+                        @foreach($category_data as $data)
+                            <option value="{{$data->category_name}}">{{$data->category_name}}</option>
+                        @endforeach
                     </select>
+                    @error('category')
+                        <div class="alert alert-dismissible alert-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
+
                 <div class="input_field">
                     <label for="">Description</label>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                    @error('desc')
+                        <div class="alert alert-dismissible alert-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
+
                 <div class="input_field">
                     <label for="">
                         Image Url
                     </label>
-                    <input type="file" class="input" id="" name="">
+                    <input type="file" class="input" id="" name="image">
                 </div>
+
                 <div class="input_field">
                     <input type="submit" value="Add" class="btn" style="color: white;">
                 </div>

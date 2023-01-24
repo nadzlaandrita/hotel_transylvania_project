@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryRoomController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,9 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/home', [CategoryRoomController::class, 'loadHome']);
 
 Route::get('/profile', [UserController::class, 'loadProfile']);
+
+Route::get('/add-room', [RoomController::class, 'loadInsertPage']);
+Route::post('/add-room', [RoomController::class, 'insertRoom']);
 
 Route::get('/cart-member', function () {
     return view('.member/cart-member');

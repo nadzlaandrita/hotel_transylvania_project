@@ -50,13 +50,13 @@
         }
     </style>
     <header>
-        <a href="" class="logo"><img src="logo_hotel.png" alt=""></a>
+        <a href="" class="logo"><img src="{{asset('images/logo.png')}}" alt=""></a>
         <div class="wrapper">
             <ul class="navi">
                 <li><a href="/home">Home</a></li>
-                <li><a href="/add-room">Add Rooms</a></li>
+                <li><a href="/add-room">Add Room</a></li>
                 <li><a href="/profile">Profile</a></li>
-                <li class="signout"><a href="">Sign Out</a></li>
+                <li class="signout"><a href="/logout">Sign Out</a></li>
             </ul>
         </div>
     </header>
