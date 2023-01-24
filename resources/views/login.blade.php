@@ -9,7 +9,7 @@
 </head>
 @include('wanda-navbar.guest-navbar')
 <body>
-    
+
     <style>
          @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
         *{
@@ -90,6 +90,7 @@
                 <div class="input_field">
                     <input type="submit" value="Sign In" class="btn" style="color: white;">
                 </div>
+                <label for="" style="margin: 10px; font-size: 15px; color: #d4af37;" ><input type="checkbox" name="remember" id="remember" checked=>Remember Me</label>
             </form>
     </div>
 </body>
