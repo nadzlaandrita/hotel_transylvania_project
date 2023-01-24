@@ -93,10 +93,15 @@
                 <p>Rp. {{$data->price}}</p>
                 <!-- kasih tau harga -->
             </div>
-                
-            <div class="profile">
-                <input type="submit" value="Update Room" style="color: white; background-color: #d4af37;">
-            </div>
+            
+            <form action="/remove/{{$data->id}}" method="POST">
+                @method('DELETE')
+                @csrf
+
+                <div class="profile">
+                    <input type="submit" value="Delete Room" style="color: white; background-color: #d4af37;">
+                </div>
+            </form>
 
         @endforeach
     </div>

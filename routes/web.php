@@ -33,6 +33,10 @@ Route::get('/home', [CategoryRoomController::class, 'loadHome']);
 Route::get('/category/{id}', [RoomController::class, 'loadRoomPage']);
 
 Route::get('/detail-room/{id}', [RoomController::class, 'loadDetailRoom']);
+
+#admin
+Route::delete('/remove/{id}', [RoomController::class, 'deleteRoom']);
+
 Route::post('add-cart/{id}', [CartController::class, 'addCart']);
 Route::get('/cart', [CartController::class, 'loadCartPage']);
 Route::delete('/remove-cart/{id}', [CartController::class, 'removeCart']);

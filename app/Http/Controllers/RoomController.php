@@ -74,7 +74,7 @@ class RoomController extends Controller
 
         $room = Room::find($id);
         $room->delete();
-        return redirect('/');
+        return redirect('/home');
     }
 
     public function loadDetailRoom($id){
