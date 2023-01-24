@@ -13,13 +13,13 @@
         @yield('Welcome')
     </title>
 </head>
-{{-- @include('wanda-navbar.guest-navbar') --}}
 <body>
 
     <nav class="navbar navbar-expand-lg fixed-top t" style="background-color: #0B0B45">
         <div></div>
         <div class="container">
-          <a class="navbar-brand pe-5" href="#" style="color: #F1F2F4">Hotel Transylvania</a>
+        <a class="navbar" href="/home" style="color: #F1F2F4"><a><img class="logo" src="{{asset('images/logo.png')}}" alt=""></a></a>
+          <a class="navbar-brand pe-5 ms-2" href="#" style="color: #F1F2F4">Hotel Transylvania</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon" style="background-color: #F1F2F4"></span>
           </button>
@@ -41,7 +41,7 @@
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
-            <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
+            <div class="carousel-item active" style="background-image: url('{{asset('images/slider1.jpg')}}');">
               <div class="carousel-caption">
                 <h5>Hotel Transylvania</h5>
                 <p>Share Your Journey and Experince</p>
@@ -49,7 +49,7 @@
                  <a href="/register" style="color: #F1F2F4; text-decoration: none">SIGN UP NOW</a>
               </div>
             </div>
-            <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+            <div class="carousel-item" style="background-image: url('{{asset('images/slider2.jpg')}}');">
               <div class="carousel-caption">
                 <h5>Hotel Transylvania</h5>
                 <p>Share Your Journey and Experince</p>
@@ -57,7 +57,7 @@
                 <a href="/register" style="color: #F1F2F4; text-decoration: none">SIGN UP NOW</a>
               </div>
             </div>
-            <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
+            <div class="carousel-item" style="background-image: url('{{asset('images/slider3.jpg')}}');">
               <div class="carousel-caption">
                 <h5>Hotel Transylvania</h5>
                 <p>Share Your Journey and Experince</p>
@@ -129,9 +129,13 @@
     color: #F1F2F4;
     margin-left: 900px
     }
-    
+
     .nav-link:active{
         color: white
+    }
+    .logo{
+        width: 50px;
+        height: 50px;
     }
 </style>
 </body>

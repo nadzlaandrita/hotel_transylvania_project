@@ -83,7 +83,7 @@
                     <p>{{$data->desc}}</p>
                     <a href="/detail-room/{{$data->id}}" class="btn22">Book Now</a>
                 </div>
-                
+
             @endforeach
         </div>
 </body>

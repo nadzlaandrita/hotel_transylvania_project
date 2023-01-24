@@ -16,9 +16,10 @@
 </head>
 <body>
 
-
+@include('vincent-navbar.user-navbar')
   <header>
-
+    <br>
+    <br>
     <br>
     <br>
 
@@ -31,10 +32,10 @@
         </form>
 
     </div>
-    
+
     <div class="card mb-3" style="max-width: 700px;">
       <div class="row g-0">
-        
+
         @foreach ($cart_data as $item)
           <div class="col-md-4">
             <img src="{{url($item->room->image)}}" class="img-fluid rounded-start"style="height: 213px" alt="...">
@@ -60,7 +61,7 @@
                 $booked_from = $carbon::parse($item->booked_from);
 
                 $interval = $booked_until->diffInDays($booked_from);
-              
+
               ?>
 
               <h6>
