@@ -51,7 +51,7 @@
                       Check Out : {{$item->booked_until}}
                     </h6>
                     <h6>
-                      Price: Rp. {{$item->room->price}}
+                      Price: Rp. {{$item->room->price}} /night(s)
                     </h6>
                     <?php
                       $booked_until = $carbon::parse($item->booked_until);
@@ -61,7 +61,7 @@
                     <h6>
                       Total Night(s) Spend : {{$interval}}
                     </h6>
-                    <a href="#" class="btn btn-primary mb-2">Edit Cart</a>
+                    <a href="/" class="btn btn-primary mb-2">Edit Cart</a>
                     <form action="/remove-cart/{{$item->room_id}}" method="POST">
                       @method('DELETE')
                       @csrf
