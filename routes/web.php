@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[CategoryRoomController::class, 'welcomeHome']);
 
 Route::get('/login',[AuthController::class,'loginPage']);
 Route::post('/login', [AuthController::class, 'login']);

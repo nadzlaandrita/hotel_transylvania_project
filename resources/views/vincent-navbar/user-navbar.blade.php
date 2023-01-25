@@ -28,7 +28,7 @@
   <style>
     .nav-link1{
     color: #F1F2F4;
-    margin-left: 835px
+    margin-left: 740px
     }
     .nav-link1,.nav-link2,.nav-link3,.nav-link4,:active{
         color: white

@@ -80,32 +80,20 @@
       <br>
 
       <div class="d-flex justify-content-center">
+      @foreach($category_data as $data)
         <!-- Page Content -->
       <div class="card mx-5" style="width: 18rem;">
-        <img class="card-img-top" src="{{asset("images/luxury_1.jpg")}}" alt="Card image cap" style="height: 150px">
+        <img class="card-img-top" src="{{$data->room[0]->image}}" alt="Card image cap" style="height: 150px">
         <div class="card-body" style="background-color: #0B0B45">
-          <h3 class="card-title" style="text-align: center; color: #F1F2F4">Luxury Room</h3>
-          <p class="card-text" style="text-align: justify; color: #F1F2F4">A Luxury Hotel is considered a hotel that provides a luxurious accommodation experience to the guest.There are no set standards such as stars for luxury hotels. Often 4 or 5-star hotels describe themselves as luxury</p>
+          <h3 class="card-title" style="text-align: center; color: #F1F2F4">{{$data->category_name}} Room</h3>
+          <p class="card-text" style="text-align: justify; color: #F1F2F4">{{$data->room[0]->desc}}</p>
         </div>
       </div>
 
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{asset("images/penthouse_1.jpg")}}" alt="Card image cap"style="height: 150px">
-        <div class="card-body" style="background-color: #0B0B45">
-          <h3 class="card-title"  style="text-align: center; color:#F1F2F4">Penthouse Room</h3>
-          <p class="card-text"  style="text-align: justify; color:#F1F2F4">A 69 sqm size, Penthouse Room provided with king bed, 2 flat screen TVs, sofa in our stylish and modern penthouse room. A 69 sqm size, traveler or small family with high mobile Perfectly suited for individual business traveler</p>
-        </div>
-      </div>
+      @endforeach
+    </div>
 
-      <div class="card mx-5" style="width: 18rem;">
-        <img class="card-img-top" src="{{asset("images/regular_6.jpg")}}" alt="Card image cap" style="height: 150px">
-        <div class="card-body" style="background-color: #0B0B45">
-          <h3 class="card-title"  style="text-align: center; color:#F1F2F4">Regular Room</h3>
-          <p class="card-text"  style="text-align: justify; color:#F1F2F4">The rooms of the hotel are classified according to the number of beds in them, their size and their range of facilities. Prices of rooms in every hotel are different depends upon their convenience.</p>
-        </div>
-      </div>
 
-      </div>
       <br>
       <br>
 
