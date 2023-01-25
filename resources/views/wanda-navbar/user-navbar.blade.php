@@ -55,7 +55,7 @@
             <ul class="navi">
                 <li><a href="/home">Home</a></li>
                 <li><a href="/cart">Cart</a></li>
-                <li><a href="/">History</a></li>
+                <li><a href="/history">History</a></li>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/logout">Sign Out</a></li>
             </ul>

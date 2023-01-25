@@ -50,7 +50,7 @@ class CartController extends Controller
             ]);
         }
 
-        return redirect('/home');
+        return redirect('/cart');
 
     }
 

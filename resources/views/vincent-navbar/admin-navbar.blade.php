@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top t" style="background-color: #0B0B45">
     <div class="container">
-      <a class="navbar" href="/home" style="color: #F1F2F4"><a><img class="logo" src="{{asset('images/logo.png')}}" alt=""></a></a>
+      <a class="navbar" href="/home" style="color: #F1F2F4"><img class="logo" src="{{asset('images/logo.png')}}" alt=""></a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="background-color: #F1F2F4"></span>

@@ -12,36 +12,33 @@
     <title>
         @yield('Welcome')
     </title>
-</head>
-
+  </head>
+  
+  @include('vincent-navbar.user-navbar')
+    <br>
+    <br>
+    <br>
     <br>
 
-    <div class="isi-transaksi">
-        <h3>Tanggal Transaksi : 29 Januari 2023</h3>
-        <ul>
-                <li> kamar reguler 1night   Rp250.000,00</li>
-                <li>kamaar luxury 1night    Rp250.000,00</li>
-
-        </ul>
-        <h3>total price</h3>
-      </div>
-
+    @foreach($transaction_data as $data)
+      {{-- @dd($transaction_data) --}}
       <div class="isi-transaksi">
-        <h3>Tanggal Transaksi : 30 Januari 2023</h3>
+        <h3>Tanggal Transaksi : {{$data->created_at}}</h3>
         <ul>
-                <li> kamar reguler 1night   Rp250.000,00</li>
-                <li>kamaar luxury 1night    Rp250.000,00</li>
-
+          @foreach($data->transaction_detail as $item)
+            <li> {{$item->room->name}} {{$item->spend}} night(s)   Rp. {{$item->sub_price}}</li>
+          @endforeach
         </ul>
-        <h3>total price</h3>
+        <h3>Total Price: {{$data->total_price}}</h3>
       </div>
+    @endforeach
 
     <style>
       .isi-transaksi{
         margin-left: 30px;
         margin-bottom: 30px;
         background-color:#0B0B45;
-        width:1400px;
+        width:1200px;
         height: 200px;
         padding: 20px;
       }

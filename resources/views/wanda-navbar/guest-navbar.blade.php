@@ -50,7 +50,7 @@
     }
 </style>
 <header>
-    <a href="" class="logo"><img src="{{asset('images/logo.png')}}" alt=""></a>
+    <a href="/" class="logo"><img src="{{asset('images/logo.png')}}" alt=""></a>
     <div class="wrapper">
         <ul class="navi">
             <li><a href="/register">Register</a></li>
