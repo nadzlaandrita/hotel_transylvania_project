@@ -13,7 +13,7 @@ class CategoryRoomController extends Controller
 
         $category_data = CategoryRoom::all();
         $room_data = Room::all();
-        
+
         if(Auth::user()->role == 'admin'){
             return view('admin.home-admin', [
                 'category_data' => $category_data,
@@ -26,8 +26,18 @@ class CategoryRoomController extends Controller
             ]);
         }
 
-        
+
+    }
+    public function welcomeHome(){
+
+        $category_data = CategoryRoom::all();
+        $room_data = Room::all();
+
+        return view('welcome', [
+            'category_data' => $category_data,
+            'room_data' => $room_data
+        ]);
     }
 
-    
+
 }
