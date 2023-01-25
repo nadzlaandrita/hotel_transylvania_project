@@ -67,7 +67,7 @@
               <h6>
                 Total Night(s) Spend : {{$interval}}
               </h6>
-              <a href="#" class="btn btn-primary">Edit Cart</a>
+              <a href="/edit-cart/{{$item->room_id}}" class="btn btn-primary">Edit Cart</a>
 
               <form action="/remove-cart/{{$item->room_id}}" method="POST">
                 @method('DELETE')

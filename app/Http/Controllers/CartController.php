@@ -60,12 +60,20 @@ class CartController extends Controller
         return redirect ('/cart');
     }
 
-    public function editCart(Request $request, $room_id){
+    public function loadUpdateCart($room_id){
+        $item = Cart::all()->where('user_id', '=', Auth::user()->id)->where('room_id', '=', $room_id);
+        // dd($item);
+        return view('member.updatetransaction', [
+            'item' => $item
+        ]);
+    }
+
+    public function updateCart(Request $request, $room_id){
         Room::find($request->room_id);
 
         $request->validate([
-            'checkin_date' => 'required|date|date_format:Y-m-d H:i:s',
-            'checkout_date' => 'required|date|date_format:Y-m-d H:i:s|after:checkin_date'
+            'checkin_date' => 'required|date',
+            'checkout_date' => 'required|date|after:checkin_date'
         ]);
 
         $cart_data = Cart::all()->where('user_id', '=', Auth::user()->id)->where('room_id', '=', $room_id)->first();
@@ -75,7 +83,7 @@ class CartController extends Controller
             'booked_until' => $request->checkout_date
         ]);
 
-        return redirect('/');
+        return redirect('/cart');
     }
 
     

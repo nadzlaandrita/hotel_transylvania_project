@@ -40,6 +40,8 @@ Route::delete('/remove/{id}', [RoomController::class, 'deleteRoom']);
 Route::post('add-cart/{id}', [CartController::class, 'addCart']);
 Route::get('/cart', [CartController::class, 'loadCartPage']);
 Route::delete('/remove-cart/{id}', [CartController::class, 'removeCart']);
+Route::get('/edit-cart/{id}', [CartController::class, 'loadUpdateCart']);
+Route::patch('/edit-cart/{id}', [CartController::class, 'updateCart']);
 
 Route::get('/profile', [UserController::class, 'loadProfile']);
 
