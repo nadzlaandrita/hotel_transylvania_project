@@ -13,6 +13,9 @@
             <a class="nav-link2" href="/cart">Cart</a>
         </ul>
         <ul class="navbar-nav">
+            <a class="nav-link2" href="/">History</a>
+        </ul>
+        <ul class="navbar-nav">
             <a class="nav-link3" href="/profile">Profile</a>
         </ul>
         <ul class="navbar-nav">
